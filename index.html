@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<h1>Incident Log<br><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">+ Add an incident</button></h1><br>
+
+{% endblock %}
+
+{% block body %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Issue</th>
+      <th scope="col">Impact</th>
+      <th scope="col">Status</th>
+      <th scope="col">Start Time</th>
+       <th scope="col">End Time</th>
+       <th scope="col">Reason</th>
+       <th scope="col">Solution</th>
+       <th scope="col">Ticket</th>
+       <th scope="col">Remarks</th>
+       <th scope="col">Action</th>
+    </tr>
+
+   
+    {% for row in incident %}
+    <tr>
+    <td >{{row.1}}</td>
+     <td >{{row.2}}</td>
+    <td >{{row.3}}</td>
+    <td >{{row.4}}</td>
+   <td >{{row.5}}</td>
+  <td >{{row.6}}</td>
+   <td >{{row.7}}</td>
+    <td >{{row.8}}</td>
+   <td >{{row.9}}</td>
+   <td>
+    
+ </td>
+</tr>
+  {% endfor %}
+ 
+
+</table>
+
+
+
+
+
+
+
+
+ <div class="container">
+ 
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h4 class="modal-title"> Log an incident </h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" action="/insert" method="POST">
+
+<!-- Form name start-->
+
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="issue"></label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="issue" id="issue" placeholder="Issue">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="impact"></label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="impact" id="impact" placeholder="Impact">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="status"></label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="status" id="status" placeholder="Status">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="startt"></label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="startt" id="startt" placeholder="Start Time">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="endt"></label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="endt" id="endt" placeholder="End Time">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="reason"></label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="reason" id="reason" placeholder="Reason">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="solution"></label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="solution" id="solution" placeholder="Solution">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="ticket"></label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="ticket" id="ticket" placeholder="Ticket">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="remarks"></label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="remarks" id="remarks" placeholder="Remarks">
+    </div>
+  </div>
+
+
+
+<!-- Form name end-->
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <br><button type="submit" class="btn btn-success">Submit</button>
+    </div>
+  </div>
+</form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+
+
+
+
+
+{% endblock %}
